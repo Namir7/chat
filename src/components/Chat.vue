@@ -1,5 +1,5 @@
 <template>
-  <div class="chat">
+  <div class="grid custom-grid-columns-two-thirds h-full">
     <h1 class="hidden">Chat</h1>
     <dialogs-side-bar />
     <active-dialog />
@@ -24,4 +24,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

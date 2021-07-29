@@ -1,41 +1,46 @@
 <template>
-  <div class="subject-header">
-    <ul>
-      <li v-for="subject in subjects" :key="subject">
-        <button>
-          {{ subject }}
-        </button>
-      </li>
-    </ul>
-  </div>
+  <ul class="flex px-6 p pb-5 border-b-2 border-gray-200">
+    <li class="mr-8" v-for="subject in subjects" :key="subject">
+      <button
+        class="font-extralight"
+        :class="subject === activeSubject.value ? activeSubject.class : ''"
+        @click="changeActive(subject)"
+      >
+        {{ subject }}
+      </button>
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
 
 import { subjects } from "@/data/subjects";
+
+interface IActiveSubject {
+  value: string;
+  class: string;
+}
 
 export default defineComponent({
   name: "SubjectHeader",
   setup() {
     // data
-    const activeSubject = subjects[0];
 
-    // style
-    const activeSubjectStyle = {};
+    const activeSubject: IActiveSubject = reactive({
+      value: "Architecture",
+      class: "font-bold",
+    });
 
     return {
+      activeSubject,
       subjects,
-      activeSubject
     };
   },
-  methods: {
-    changeActive(value:string):void {
-      
-      const isUndefinedSubject:boolean = subjects.includes(value);
-      if (isUndefinedSubject) throw new Error("undefined subject");
 
-      this.activeSubject = value;
+  methods: {
+    changeActive(newValue: string): void {
+      this.activeSubject.value = newValue;
     },
   },
 });

@@ -3,3 +3,25 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer utilities {
+  .custom-grid-columns-two-thirds {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans tracking-wide;
+  }
+
+  .container {
+    @apply h-full;
+  }
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url(./fonts/Montserrat/Montserrat-Regular.ttf),
+    format(ttf);
+}

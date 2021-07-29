@@ -1,8 +1,8 @@
 const subjects: Array<string> = [
-  "architecture",
+  "Architecture",
   "Calculus",
   "English",
-  "Managment"
+  "Managment",
 ];
 
 export { subjects };

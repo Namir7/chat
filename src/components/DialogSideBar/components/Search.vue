@@ -1,6 +1,10 @@
 <template>
-  <div class="search">
-    <input type="text" placeholder="search" />
+  <div class="px-6 mb-6">
+    <input
+      class="w-full p-4 rounded-2xl outline-none border border-gray-300"
+      type="text"
+      placeholder="search"
+    />
   </div>
 </template>
 
